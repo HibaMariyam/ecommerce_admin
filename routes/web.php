@@ -1,15 +1,11 @@
 <?php
 
+use App\Livewire\Home;
+use App\Livewire\Register;
+use App\Livewire\Login;
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'welcome');
+Route::get('/', Home::class)->name('home');
+Route::get('/register', Register::class)->name('register');
+Route::get('/login', Login::class)->name('login');
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
-
-Route::view('profile', 'profile')
-    ->middleware(['auth'])
-    ->name('profile');
-
-require __DIR__.'/auth.php';
